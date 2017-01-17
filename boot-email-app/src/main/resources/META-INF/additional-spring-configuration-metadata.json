@@ -1,0 +1,27 @@
+{"properties": [
+  {
+    "name": "mail-sender.host",
+    "type": "java.lang.String",
+    "description": "A description for 'mail-sender.host'"
+  },
+  {
+    "name": "mail-sender.port",
+    "type": "java.lang.String",
+    "description": "A description for 'mail-sender.port'"
+  },
+  {
+    "name": "mail-sender.protocol",
+    "type": "java.lang.String",
+    "description": "A description for 'mail-sender.protocol'"
+  },
+  {
+    "name": "mail-sender.username",
+    "type": "java.lang.String",
+    "description": "A description for 'mail-sender.username'"
+  },
+  {
+    "name": "mail-sender.password",
+    "type": "java.lang.String",
+    "description": "A description for 'mail-sender.password'"
+  }
+]}

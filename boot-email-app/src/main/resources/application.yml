@@ -1,0 +1,6 @@
+mailSender:
+ host: localhost
+ port: 22
+ protocol: smptp
+ username: uname
+ password: Welcome1 
