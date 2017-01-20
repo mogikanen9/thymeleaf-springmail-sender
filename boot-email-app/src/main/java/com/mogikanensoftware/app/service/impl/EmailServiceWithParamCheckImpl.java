@@ -15,7 +15,7 @@ import com.mogikanensoftware.app.service.EmailServiceException;
 @Primary
 public class EmailServiceWithParamCheckImpl implements EmailService {
 
-	private static final String PARAMETER_S_CANNOT_BE_EMPTY = "Parameter %s cannot be empty";
+	private static final String PARAMETER_S_CANNOT_BE_EMPTY = "Parameter '%s' cannot be empty";
 
 	private EmailService target;
 
