@@ -16,24 +16,19 @@ import org.thymeleaf.context.Context;
 import com.mogikanensoftware.app.service.EmailService;
 import com.mogikanensoftware.app.service.EmailServiceException;
 
-@Service
+@Service("emailService")
 public class EmailServiceImpl implements EmailService {
 
 	private JavaMailSender mailSender;
 	private TemplateEngine templateEngine;
 
+
 	@Autowired
-	@Qualifier("templateEngine")
-	public void setTemplateEngine(TemplateEngine templateEngine) {
+	public EmailServiceImpl(@Qualifier("templateEngine")TemplateEngine templateEngine, @Qualifier("mailSender")JavaMailSender mailSender){
+		this.mailSender = mailSender;
 		this.templateEngine = templateEngine;
 	}
-
-	@Autowired
-	@Qualifier("mailSender")
-	public void setMailSender(JavaMailSender mailSender) {
-		this.mailSender = mailSender;
-	}
-
+	
 	@Override
 	public void sendEmail(String from, String to, String templateName, String subject, Map<String, String> params)
 			throws EmailServiceException {
