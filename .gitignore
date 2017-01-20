@@ -1,0 +1,10 @@
+
+*.jar
+
+boot-email-app/.mvn/wrapper/maven-wrapper.properties
+
+boot-email-app/mvnw.cmd
+
+boot-email-app/mvnw
+
+*.class

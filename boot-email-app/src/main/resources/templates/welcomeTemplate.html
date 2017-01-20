@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title th:remove="all">Template for Welcome HTML email</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  </head>
+  <body>
+    <p>
+      Hello, <span th:text="${firstName}"></span>!
+    </p>
+    <p th:if="${lastName.length() > 10}">
+      Wow! You've got a long name (more than 10 chars)!
+    </p>   
+    <p>
+      Regards, <br />
+      <em>The Thymeleaf Team</em>
+    </p>
+  </body>
+</html>
