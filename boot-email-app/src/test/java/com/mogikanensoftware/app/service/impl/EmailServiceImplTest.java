@@ -25,7 +25,7 @@ import com.mogikanensoftware.app.service.EmailServiceException;
 @PrepareForTest(TemplateEngine.class)
 public class EmailServiceImplTest {
 
-	private EmailServiceImpl emailService;	
+	private EmailServiceImpl emailService;
 
 	@Before
 	public void setUp() throws Exception {
@@ -33,13 +33,13 @@ public class EmailServiceImplTest {
 		TemplateEngine templateEngine = PowerMockito.mock(TemplateEngine.class);
 		ITemplateResolver templateResolver = PowerMockito.mock(ITemplateResolver.class);
 		MimeMessageHelperCreator mimeMessageHelperCreator = PowerMockito.mock(MimeMessageHelperCreator.class);
-		
+
 		MimeMessageHelper mimeMessageHelper = PowerMockito.mock(MimeMessageHelper.class);
 		Mockito.doThrow(new MessagingException("Invalid from")).when(mimeMessageHelper).setFrom("gavno@qwe.com");
 		PowerMockito.when(mimeMessageHelperCreator.create(Mockito.any(), Mockito.any())).thenReturn(mimeMessageHelper);
-		
+
 		templateEngine.setTemplateResolver(templateResolver);
-		emailService = new EmailServiceImpl(templateEngine, mailSender,mimeMessageHelperCreator);						
+		emailService = new EmailServiceImpl(templateEngine, mailSender, mimeMessageHelperCreator);
 		PowerMockito.when(templateEngine.process(Mockito.anyString(), Mockito.any())).thenReturn("email html content");
 	}
 
@@ -52,19 +52,18 @@ public class EmailServiceImplTest {
 	public void testSendEmail() throws EmailServiceException {
 		Map<String, String> params = new HashMap<>();
 		params.put("firstName", "Jina");
-		params.put("lastName", "Doe");		
-		emailService.sendEmail("abc@wer.com", "qwe@q.com", "welcomeTemplate",
-		 "hi", params);
+		params.put("lastName", "Doe");
+		emailService.sendEmail("abc@wer.com", "qwe@q.com", "welcomeTemplate", "hi", params);
 	}
-	
-	@Test(expected = EmailServiceException.class)	
+
+	@Test(expected = EmailServiceException.class)
 	public void testSendEmailWithMimeException() throws MessagingException, EmailServiceException {
 		Map<String, String> params = new HashMap<>();
 		params.put("firstName", "Jina");
-		params.put("lastName", "Doe");		
-		emailService.sendEmail("gavno@qwe.com", "qwe@q.com", "welcomeTemplate",
-		 "hi", params);
+		params.put("lastName", "Doe");
+		emailService.sendEmail("gavno@qwe.com", "qwe@q.com", "welcomeTemplate", "hi", params);
 		Assert.fail();
+
 	}
 
 }

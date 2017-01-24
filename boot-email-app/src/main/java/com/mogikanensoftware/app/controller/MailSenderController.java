@@ -19,8 +19,7 @@ public class MailSenderController {
 
 	private EmailService emailService;
 	
-	@Autowired
-	public void setEmailService(EmailService emailService){
+	public MailSenderController(@Autowired EmailService emailService){
 		this.emailService = emailService;
 	}
 
